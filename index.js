@@ -38,6 +38,7 @@ function fileDisplay(filePath){
             files.forEach(function(filename){
                 //获取当前文件的绝对路径
                 var filedir = path.join(filePath,filename);
+                const output = 'C:/Users/Admin/Downloads/newMint'
                 //根据文件路径获取文件信息，返回一个fs.Stats对象
                 fs.stat(filedir,function(eror,stats){
                     if(eror){
@@ -48,7 +49,7 @@ function fileDisplay(filePath){
                         if(isFile){
                             console.log(filedir);
                             // 压缩图片
-                            setTimeout(()=>{tinify.fromFile(filedir).toFile(filedir)});
+                            setTimeout(()=>{tinify.fromFile(filedir).toFile(output)});
                         }
                         if(isDir){
                             fileDisplay(filedir);//递归，如果是文件夹，就继续遍历该文件夹下面的文件
